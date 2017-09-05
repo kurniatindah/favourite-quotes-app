@@ -15,8 +15,10 @@ export class LibraryPage implements OnInit{
   reorderItems(indexes){
     this.items = reorderArray(this.items, indexes);
   }
+
   ngOnInit () {
     this.quoteCollection = quotes;
+    console.log(this.quoteCollection);
   }
 
   buy(){

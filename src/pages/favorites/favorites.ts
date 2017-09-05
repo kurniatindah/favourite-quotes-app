@@ -12,7 +12,7 @@ import { SettingsService } from '../../services/settings';
 
 export class FavoritesPage {
   quotes: Quote[];
-
+  
   constructor (private quoteService: QuotesService, private modalCtrl: ModalController, private settingsSvc: SettingsService) {}
 
   ionViewWillEnter() {

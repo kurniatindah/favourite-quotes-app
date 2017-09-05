@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { SettingsPage } from '../pages/settings/settings';
+import { SignUpPage } from '../pages/sign-up/sign-up';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,6 +13,8 @@ import { SettingsPage } from '../pages/settings/settings';
 export class MyApp {
   tabsPage = TabsPage;
   settingsPage = SettingsPage;
+  signUpPage = SignUpPage;
+  
   @ViewChild('sideMenuContent') nav: NavController;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl: MenuController) {
