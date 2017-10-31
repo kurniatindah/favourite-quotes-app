@@ -9,7 +9,6 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
   <ion-list>
     <button *ngFor="let quoteGroup of quoteCollection" [navPush]="quotesPage" [navParams]="quoteGroup" ion-item>
@@ -18,7 +17,7 @@
       <p>{{ quoteGroup.quotes.length }} quotes</p>
     </button>
   </ion-list>
-
+<!--
   <ion-list>
     <ion-item-sliding>
       <ion-item>
@@ -94,5 +93,5 @@
       {{ item }}
     </ion-item>
   </ion-list>
-  
+-->
 </ion-content>

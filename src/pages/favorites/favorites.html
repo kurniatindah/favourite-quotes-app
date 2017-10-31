@@ -5,12 +5,19 @@
         <ion-icon name="menu" ></ion-icon>
       </button>
     </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="onShowPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Favorites</ion-title>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
+  <!-- <button block ion-button small (click)="onAddQuote()">
+    <ion-icon name="add" style="font-size: 200%; font-weight: bold; color: white;"></ion-icon>
+  </button> -->
   <ion-list>
     <ion-item-sliding *ngFor='let quote of quotes'>
       <ion-item (click)="getQuoteDetail(quote)" [color]="setBgColor()">
@@ -22,4 +29,6 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+
 </ion-content>
+

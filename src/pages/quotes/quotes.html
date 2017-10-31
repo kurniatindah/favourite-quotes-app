@@ -1,15 +1,13 @@
-
 <ion-header>
   <ion-navbar>
     <ion-title>quotes</ion-title>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <ion-card *ngFor='let quote of quoteGroup.quotes; let i = index;' padding>
+  <ion-card *ngFor='let quote of quoteGroup.quotes' padding>
     <ion-card-header>
-      #{{ i + 1 }}
+      {{ quote.id }}
     </ion-card-header>
     <ion-card-content>
       <p>{{ quote.text }}</p>

@@ -6,12 +6,13 @@ import { SettingsService } from '../../services/settings';
   selector: 'page-settings',
   templateUrl: 'settings.html',
 })
+
 export class SettingsPage {
   constructor ( private settingsSvc: SettingsService) {}
   onToggle(toggle: Toggle) {
     this.settingsSvc.setBackground(toggle.checked);
   }
-  
+
   isChecked() {
     return this.settingsSvc.isAltBackground();
   }

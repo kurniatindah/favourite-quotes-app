@@ -8,11 +8,14 @@ import { QuotesService } from '../../services/quotes';
   templateUrl: 'quotes.html',
 })
 
-export class QuotesPage implements OnInit {
-  quoteGroup: { category: string, quotes: Quote[], icon: string};
-  constructor (private navParams: NavParams, private quotesService: QuotesService, private alertCtrl: AlertController) {}
+export class QuotesPage {
+  quoteGroup: {category: string, quotes: Quote[], icon: string};
+  constructor (
+    private navParams: NavParams,
+    private quotesService: QuotesService,
+    private alertCtrl: AlertController){}
 
-  ngOnInit () {
+  ngOnInit() {
     this.quoteGroup = this.navParams.data;
     console.log(this.quoteGroup.category);
   }
@@ -30,6 +33,7 @@ export class QuotesPage implements OnInit {
         text: 'Ok',
         handler: () => {
           this.quotesService.addQuoteToFavorites(quote);
+          console.log(this.quotesService);
         }
       },
       {
@@ -52,6 +56,7 @@ export class QuotesPage implements OnInit {
         text: 'Ok',
         handler: () => {
           this.quotesService.removeQuoteFromFavorites(quote);
+          console.log(this.quotesService);
         }
       },
       {
