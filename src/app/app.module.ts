@@ -11,14 +11,9 @@ import { LibraryPage } from '../pages/library/library';
 import { QuotesPage } from '../pages/quotes/quotes';
 import { QuotePage } from '../pages/quote/quote';
 import { SettingsPage } from '../pages/settings/settings';
-import { SignUpPage } from '../pages/sign-up/sign-up';
-import { SignInPage } from '../pages/sign-in/sign-in';
-import { AddQuotePage } from '../pages/add-quote/add-quote';
 
 import { QuotesService } from '../services/quotes';
 import { SettingsService } from '../services/settings';
-import { AuthService } from '../services/auth'
-import { FavoritesOptionPage } from '../pages/favorites/favorites-option/favorites-option';
 
 @NgModule({
   declarations: [
@@ -28,11 +23,7 @@ import { FavoritesOptionPage } from '../pages/favorites/favorites-option/favorit
     FavoritesPage,
     QuotesPage,
     QuotePage,
-    SettingsPage,
-    SignInPage,
-    SignUpPage,
-    AddQuotePage,
-    FavoritesOptionPage
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -46,18 +37,13 @@ import { FavoritesOptionPage } from '../pages/favorites/favorites-option/favorit
     FavoritesPage,
     QuotesPage,
     QuotePage,
-    SettingsPage,
-    SignInPage,
-    SignUpPage,
-    AddQuotePage,
-    FavoritesOptionPage
+    SettingsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     QuotesService,
-    AuthService,
     SettingsService
   ]
 })
