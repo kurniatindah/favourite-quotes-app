@@ -33,10 +33,10 @@ export class MyApp {
 
     firebase.auth().onAuthStateChanged(user =>{
       if(user){
-        this.nav.setRoot(SignInPage)
+        this.nav.setRoot(TabsPage)
       }
       else{
-        this.nav.setRoot(TabsPage)
+        this.nav.setRoot(SignInPage)
       }
     })
 
