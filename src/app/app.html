@@ -18,4 +18,24 @@
     </ion-content>
 </ion-menu>
 
-<ion-nav [root]="tabsPage" #sideMenuContent></ion-nav>
+<ion-menu [content]="signMenuContent">
+    <ion-header>
+        <ion-toolbar text-center>
+            <h2>Menu</h2>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <button ion-item (click)="onLoad(signInPage)">
+                <ion-icon name="exit-outline" item-left></ion-icon>
+                Sign In
+            </button>
+            <button ion-item (click)="onLoad(signUpPage)">
+                <ion-icon name="person" item-left></ion-icon>
+                Sign Up
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="signInPage" #signMenuContent></ion-nav>

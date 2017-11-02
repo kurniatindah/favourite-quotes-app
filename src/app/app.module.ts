@@ -11,8 +11,11 @@ import { LibraryPage } from '../pages/library/library';
 import { QuotesPage } from '../pages/quotes/quotes';
 import { QuotePage } from '../pages/quote/quote';
 import { SettingsPage } from '../pages/settings/settings';
+import { SignInPage } from '../pages/sign-in/sign-in';
+import { SignUpPage } from '../pages/sign-up/sign-up';
 
 import { QuotesService } from '../services/quotes';
+import { AuthService } from '../services/authService';
 import { SettingsService } from '../services/settings';
 
 @NgModule({
@@ -23,7 +26,9 @@ import { SettingsService } from '../services/settings';
     FavoritesPage,
     QuotesPage,
     QuotePage,
-    SettingsPage
+    SettingsPage,
+    SignInPage,
+    SignUpPage
   ],
   imports: [
     BrowserModule,
@@ -37,14 +42,17 @@ import { SettingsService } from '../services/settings';
     FavoritesPage,
     QuotesPage,
     QuotePage,
-    SettingsPage
+    SettingsPage,
+    SignInPage,
+    SignUpPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     QuotesService,
-    SettingsService
+    SettingsService,
+    AuthService
   ]
 })
 export class AppModule {}
