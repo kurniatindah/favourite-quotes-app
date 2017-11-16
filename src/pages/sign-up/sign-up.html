@@ -7,6 +7,11 @@
 <ion-header>
 
   <ion-navbar>
+      <ion-buttons start >
+          <button ion-button menuToggle>
+            <ion-icon name="menu" ></ion-icon>
+          </button>
+        </ion-buttons>
     <ion-title>signUp</ion-title>
   </ion-navbar>
 
@@ -14,5 +19,17 @@
 
 
 <ion-content padding>
-
+  <form #f="ngForm" (ngSubmit)="onSignUp(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="text" name="email" required placeholder="Email Address Here" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" name="password" required placeholder="Password Here" ngModel></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button type="submit" block [disabled]="!f.valid">Sign Me Up</button>
+  </form>
 </ion-content>

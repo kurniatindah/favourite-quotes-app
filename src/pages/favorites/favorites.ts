@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { QuotesService } from '../../services/quotes';
 import { Quote } from '../../data/quote.interface';
-import { ModalController, AlertController, ToastController } from 'ionic-angular';
+import { ModalController, AlertController, ToastController, PopoverController } from 'ionic-angular';
 import { QuotePage } from '../quote/quote';
+import { PopoverPage } from '../popover/popover';
+
 import { SettingsService } from '../../services/settings';
+import { AuthService } from '../../services/authService';
 
 @Component({
   selector: 'page-favorites',
@@ -17,7 +20,9 @@ export class FavoritesPage {
     private modalCtrl: ModalController,
     private settingsSvc: SettingsService,
     private toastCtrl: ToastController,
-    private alertCtrl: AlertController) {}
+    private alertCtrl: AlertController,
+    private popoverCtrl: PopoverController,
+    private authService: AuthService) {}
 
   ionViewWillEnter() {
     this.quotes = this.quoteService.getFavoriteQuotes();
@@ -56,7 +61,7 @@ export class FavoritesPage {
     });
   }
 
-  onNewQuote() {
+  public onNewQuote() {
     const alert = this.alertCtrl.create({
       title: "Add New Quote",
       inputs: [
@@ -94,5 +99,12 @@ export class FavoritesPage {
       ]
     })
     alert.present();
+  }
+
+  presentPopover(event){
+    let popover = this.popoverCtrl.create(PopoverPage)
+    popover.present({
+      ev: event
+    });
   }
 }

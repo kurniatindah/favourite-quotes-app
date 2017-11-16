@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AuthService } from '../../services/authService';
 import { NgForm } from "@angular/forms/src/forms";
+import { AuthService } from '../../services/authService';
 
 /**
  * Generated class for the SignInPage page.
@@ -23,8 +23,8 @@ export class SignInPage {
     console.log('ionViewDidLoad SignInPage');
   }
 
-  onSignIn(f: NgForm){
-    console.log(this.authService.signIn(f.value.email, f.value.password))
+  onSignIn(form: NgForm){
+    this.authService.signIn(form.value.email, form.value.password)
   }
 
 }

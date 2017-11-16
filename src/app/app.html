@@ -6,18 +6,26 @@
     </ion-header>
     <ion-content>
         <ion-list>
-            <button ion-item (click)="onLoad(tabsPage)">
+            <button ion-item (click)="onLoad(tabsPage)" *ngIf="loggedIn==1">
                 <ion-icon name="quote" item-left></ion-icon>
                 Quotes
             </button>
-            <button ion-item (click)="onLoad(settingsPage)">
+            <button ion-item (click)="onLoad(settingsPage)"*ngIf="loggedIn==1">
                 <ion-icon name="settings" item-left></ion-icon>
                 Settings
             </button>
-            <button ion-item (click)="onLoad(signUpPage)">
+            <button ion-item (click)="onLoad(signInPage)" *ngIf="loggedIn==0">
+                    <ion-icon name="exit-outline" item-left></ion-icon>
+                    Sign In
+                </button>
+            <button ion-item (click)="onLoad(signUpPage)" *ngIf="loggedIn==0">
                 <ion-icon name="log-out" item-left></ion-icon>
                 Sign Up
             </button>
+            <button ion-item (click)="logOut()" *ngIf="loggedIn==1">
+                    <ion-icon name="log-out" item-left></ion-icon>
+                    Log out
+                </button>
         </ion-list>
     </ion-content>
 </ion-menu>
@@ -42,4 +50,4 @@
     </ion-content>
 </ion-menu>
 
-<ion-nav [root]="signInPage" #signMenuContent></ion-nav>
+<ion-nav [root]="tabsPage" #sideMenuContent></ion-nav>

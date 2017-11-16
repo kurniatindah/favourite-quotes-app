@@ -1,7 +1,8 @@
 import { Quote } from '../data/quote.interface';
+import { AlertController, ToastController } from 'ionic-angular';
 
 export class QuotesService {
-    private favoriteQuotes: Quote[] = [];
+    private favoriteQuotes: Quote[] = []
 
     addQuoteToFavorites(quote: Quote) {
         this.favoriteQuotes.push(quote);
@@ -23,5 +24,9 @@ export class QuotesService {
             return quoteEl.id == quote.id;
         });
         return idx==-1? false : true;
+    }
+
+    clearAll(){
+        this.favoriteQuotes = []
     }
 }
