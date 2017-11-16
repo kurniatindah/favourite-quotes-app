@@ -14,10 +14,18 @@
                 <ion-icon name="settings" item-left></ion-icon>
                 Settings
             </button>
+            <button ion-item (click)="onLoad(signInPage)">
+                    <ion-icon name="exit-outline" item-left></ion-icon>
+                    Sign In
+                </button>
             <button ion-item (click)="onLoad(signUpPage)">
                 <ion-icon name="log-out" item-left></ion-icon>
                 Sign Up
             </button>
+            <button ion-item (click)="logOut()">
+                    <ion-icon name="log-out" item-left></ion-icon>
+                    Log out
+                </button>
         </ion-list>
     </ion-content>
 </ion-menu>
@@ -42,4 +50,4 @@
     </ion-content>
 </ion-menu>
 
-<ion-nav [root]="signInPage" #signMenuContent></ion-nav>
+<ion-nav [root]="tabsPage" #sideMenuContent></ion-nav>
