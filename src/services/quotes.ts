@@ -1,7 +1,13 @@
 import { Quote } from '../data/quote.interface';
-import { AlertController, ToastController } from 'ionic-angular';
+import { Injectable } from '@angular/core';
+import { Http,Response } from '@angular/http';
+import { AuthService } from './authService';
+import 'rxjs';
 
 export class QuotesService {
+    constructor(public http: Http, public authSvc : AuthService) {
+    }
+
     private favoriteQuotes: Quote[] = []
 
     addQuoteToFavorites(quote: Quote) {
@@ -28,5 +34,27 @@ export class QuotesService {
 
     clearAll(){
         this.favoriteQuotes = []
+    }
+
+    storeList(token: string) {
+        const uid = this.authSvc.getActiveUser().uid;
+        return this.http
+        .put('https://favorite-quotes-7a4ac.firebaseio.com/' + uid + '/favquotes.json?auth='
+        + token, this.favoriteQuotes)
+        .map((response: Response) => {
+        return response.json();
+        });
+    }
+
+    getData(token){
+        // console.log("Fetching Data");
+        const uid = this.authSvc.getActiveUser().uid;
+        return this.http
+        .get('https://favorite-quotes-7a4ac.firebaseio.com/' + uid + '/favquotes.json?auth=' + token)
+        .map((response : Response) => {
+            this.favoriteQuotes = response.json();
+            // console.log(this.favoriteQuotes);
+            return this.favoriteQuotes;
+        });
     }
 }

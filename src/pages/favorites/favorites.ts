@@ -61,50 +61,55 @@ export class FavoritesPage {
     });
   }
 
-  public onNewQuote() {
-    const alert = this.alertCtrl.create({
-      title: "Add New Quote",
-      inputs: [
-        {
-          name: "person",
-          placeholder: "Quote Author"
-        },
-        {
-          name: "text",
-          placeholder: "Quote"
-        }
-      ],
-      buttons: [
-        {
-          text: "OK",
-          handler: data => {
-            let q = {id: "0", person: data.person, text: data.text};
-            if (data.person && data.text) {
-              this.quoteService.addQuoteToFavorites(q);
-              this.quotes = this.quoteService.getFavoriteQuotes();
+  // public onNewQuote() {
+  //   const alert = this.alertCtrl.create({
+  //     title: "Add New Quote",
+  //     inputs: [
+  //       {
+  //         name: "person",
+  //         placeholder: "Quote Author"
+  //       },
+  //       {
+  //         name: "text",
+  //         placeholder: "Quote"
+  //       }
+  //     ],
+  //     buttons: [
+  //       {
+  //         text: "OK",
+  //         handler: data => {
+  //           let q = {id: "0", person: data.person, text: data.text};
+  //           if (data.person && data.text) {
+  //             this.quoteService.addQuoteToFavorites(q);
+  //             this.quotes = this.quoteService.getFavoriteQuotes();
 
-              const toast = this.toastCtrl.create({
-                message: 'New quote was added',
-                duration: 2000,
-                position: 'bottom'
-              });
-              toast.present();
-            }
-          }
-        },
-        {
-          text: "Cancel",
-          role: "cancel"
-        }
-      ]
-    })
-    alert.present();
-  }
+  //             const toast = this.toastCtrl.create({
+  //               message: 'New quote was added',
+  //               duration: 2000,
+  //               position: 'bottom'
+  //             });
+  //             toast.present();
+  //           }
+  //         }
+  //       },
+  //       {
+  //         text: "Cancel",
+  //         role: "cancel"
+  //       }
+  //     ]
+  //   })
+  //   alert.present();
+  // }
 
   presentPopover(event){
     let popover = this.popoverCtrl.create(PopoverPage)
     popover.present({
       ev: event
     });
+
+    popover.onDidDismiss(() => {
+      //console.log(data);
+      this.quotes = this.quoteService.getFavoriteQuotes();
+    })
   }
 }

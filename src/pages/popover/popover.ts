@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ViewController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { NavController, ViewController, NavParams, AlertController, ToastController, LoadingController } from 'ionic-angular';
 import { QuotesService } from '../../services/quotes';
 import { Quote } from '../../data/quote.interface';
 import { FavoritesPage } from '../favorites/favorites';
@@ -49,7 +49,8 @@ export class PopoverPage {
     private quoteService: QuotesService,
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
-    private authService: AuthService) {
+    private authService: AuthService,
+    private loadingCtrl: LoadingController) {
   }
 
   close(){
@@ -57,8 +58,21 @@ export class PopoverPage {
   }
 
   save(){
-    this.token = this.authService.getActiveUser().getIdToken()
-    console.log(this.token)
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Processing'
+    });
+    loading.present()
+
+    this.authService.getActiveUser().getToken()
+    .then((token:string) => {
+      const uid = this.authService.getActiveUser().uid
+      this.quoteService.storeList(token).subscribe( () => this.presentToast("Save Success"),
+        error => {
+          console.log(error);
+        });
+      });
+      loading.dismiss()
   }
 
   onNewQuote() {
