@@ -41,7 +41,7 @@ export class QuotesService {
     storeList(token: string) {
         const uid = this.authSvc.getActiveUser().uid;
         return this.http
-        .put('https://favorite-quotes-app-45b18.firebaseio.com/' + uid + '/favquotes.json?auth='
+        .put('https://tugasmobile-4796.firebaseio.com/' + uid + '/favquotes.json?auth='
         + token, this.favoriteQuotes)
         .map((response: Response) => {
         return response.json();
@@ -52,7 +52,7 @@ export class QuotesService {
         // console.log("Fetching Data");
         const uid = this.authSvc.getActiveUser().uid;
         return this.http
-        .get('https://favorite-quotes-app-45b18.firebaseio.com/' + uid + '/favquotes.json?auth=' + token)
+        .get('https://tugasmobile-4796.firebaseio.com/' + uid + '/favquotes.json?auth=' + token)
         .map((response : Response) => {
             this.favoriteQuotes = response.json();
             console.log(this.favoriteQuotes);

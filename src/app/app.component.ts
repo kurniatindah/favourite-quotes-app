@@ -31,12 +31,12 @@ export class MyApp {
     private authService: AuthService) {
 
     firebase.initializeApp({
-      apiKey: "AIzaSyDUPTM8wuogtnphPOoOigH8AbUrBVqueaE",
-      authDomain: "favorite-quotes-app-45b18.firebaseapp.com",
-      databaseURL: "https://favorite-quotes-app-45b18.firebaseio.com",
-      projectId: "favorite-quotes-app-45b18",
-      storageBucket: "favorite-quotes-app-45b18.appspot.com",
-      messagingSenderId: "359971052923"
+      apiKey: "AIzaSyDvzON3QwOXNR91lHfc8WEqmCHYkj4e0cE",
+      authDomain: "tugasmobile-4796.firebaseapp.com",
+      databaseURL: "https://tugasmobile-4796.firebaseio.com",
+      projectId: "tugasmobile-4796",
+      storageBucket: "tugasmobile-4796.appspot.com",
+      messagingSenderId: "1039733888972"
     })
 
     firebase.auth().onAuthStateChanged(user =>{
