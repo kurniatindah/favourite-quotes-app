@@ -18,6 +18,7 @@ import { PopoverPage } from '../pages/popover/popover';
 import { QuotesService } from '../services/quotes';
 import { AuthService } from '../services/authService';
 import { SettingsService } from '../services/settings';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SettingsService } from '../services/settings';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

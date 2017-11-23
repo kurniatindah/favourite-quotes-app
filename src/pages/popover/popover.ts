@@ -75,7 +75,16 @@ export class PopoverPage {
       loading.dismiss()
   }
 
-  onNewQuote() {
+  presentToast(message: string){
+    const toast = this.toastCtrl.create({
+      message : message,
+      duration: 1500,
+      position : 'bottom'
+    });
+    toast.present();
+  }
+
+  newQuote() {
     const alert = this.alertCtrl.create({
       title: "Add New Quote",
       inputs: [

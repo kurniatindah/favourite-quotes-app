@@ -9,6 +9,7 @@ import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { SettingsPage } from '../pages/settings/settings';
 import { AuthService } from '../services/authService';
+import { retry } from 'rxjs/operator/retry';
 
 @Component({
   templateUrl: 'app.html'
