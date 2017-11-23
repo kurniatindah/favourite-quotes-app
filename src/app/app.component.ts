@@ -68,8 +68,6 @@ export class MyApp {
     this.authService.logout()
   }
 
-  iseng(){
-  
-  }
+
 
 }

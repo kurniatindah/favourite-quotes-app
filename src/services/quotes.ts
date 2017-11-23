@@ -52,7 +52,7 @@ export class QuotesService {
         // console.log("Fetching Data");
         const uid = this.authSvc.getActiveUser().uid;
         return this.http
-        .get('https://tugasmobile-4796.firebaseio.com/' + uid + '/favquotes.json?auth=' + token)
+        .get('https://tugasmobile-4796.firebaseio.com/c' + uid + '/favquotes.json?auth=' + token)
         .map((response : Response) => {
             this.favoriteQuotes = response.json();
             console.log(this.favoriteQuotes);
